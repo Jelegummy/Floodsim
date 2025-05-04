@@ -1,0 +1,16 @@
+volumes:
+  floodsim_data:
+
+services:
+  db:
+    container_name: floodsim-database
+    image: postgres:17-alpine
+    restart: on-failure
+    ports:
+      - 5434:5432
+    environment:
+      - POSTGRES_DB=floodsim
+      - POSTGRES_USER=local
+      - POSTGRES_PASSWORD=local
+    volumes:
+      - floodsim_data:/var/lib/postgresql/data
