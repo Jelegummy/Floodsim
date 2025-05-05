@@ -14,89 +14,15 @@ enum Role {
 }
 
 model User {
-    id       String  @id @default(cuid())
-    email    String  @unique
-    role     Role    @default(USER)
-    name     String
-    surname  String
-    password String
-    tel      String?
-    line     String?
-    address  String?
-    orders   Order[]
-    carts    Cart[]
+    id          String  @id @default(cuid())
+    email       String  @unique
+    role        Role    @default(USER)
+    firstName   String
+    lastName    String
+    password    String
+    phoneNumber String?
+    address     String?
 
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
-model Cart {
-    id        String  @id @default(cuid())
-    quantity  Int
-    productId String
-    product   Product @relation(fields: [productId], references: [id])
-    userId    String
-    user      User    @relation(fields: [userId], references: [id])
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
-model Category {
-    id       String    @id @default(cuid())
-    name     String
-    image    String
-    isActive Boolean
-    products Product[]
-
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
-    deletedAt DateTime?
-}
-
-model Product {
-    id       String  @id @default(cuid())
-    name     String
-    price    Float
-    image    String
-    isActive Boolean
-    stocks   Stock[]
-    carts    Cart[]
-
-    categoryId String
-    category   Category  @relation(fields: [categoryId], references: [id])
-    createdAt  DateTime  @default(now())
-    updatedAt  DateTime  @updatedAt
-    deletedAt  DateTime?
-}
-
-model Stock {
-    id String @id @default(cuid())
-
-    orderId   String?
-    order     Order?   @relation(fields: [orderId], references: [id])
-    productId String
-    product   Product  @relation(fields: [productId], references: [id])
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
-enum OrderStatus {
-    PENDING
-    SUCCESS
-    FAILED
-}
-
-model Order {
-    id            String      @id @default(cuid())
-    extId         String
-    status        OrderStatus @default(PENDING)
-    totalPrice    Float
-    stocks        Stock[]
-    productDetail Json[] // { id: string; name: string; price: number; quantity: number }[]
-
-    userId    String
-    user      User     @relation(fields: [userId], references: [id])
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }

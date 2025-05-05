@@ -6,11 +6,10 @@ export type Context = FastifyRequest & {
     user: {
       id: string
       email: string
-      name: string
-      surname: string
+      firstName: string
+      lastName: string
       role: 'USER' | 'ADMIN'
-      tel: string | null
-      line: string | null
+      phoneNumber: string | null
       address: string | null
     } | null
   }

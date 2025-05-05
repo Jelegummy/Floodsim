@@ -27,11 +27,10 @@ export class UserMiddleware implements NestMiddleware {
         select: {
           id: true,
           email: true,
-          name: true,
-          surname: true,
+          firstName: true,
+          lastName: true,
           role: true,
-          tel: true,
-          line: true,
+          phoneNumber: true,
           address: true,
         },
       })

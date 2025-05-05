@@ -9,28 +9,11 @@ import { MailerModule } from '@nestjs-modules/mailer'
 // import { MinioModule } from 'nestjs-minio-client'
 import { ZodValidationPipe } from 'nestjs-zod'
 
-// import { BookingModule } from './api/booking/booking.module'
-// import { MassagerModule } from './api/massager/massager.module'
-// import { PaymentModule } from './api/payment/payment.module'
-// import { PropertyModule } from './api/property/property.module'
-// import { ReviewModule } from './api/review/review.module'
-// import { UserModule } from './api/user/user.module'
-// import { CartModule } from './api/cart/cart.module'
-// import { CategoryModule } from './api/category/categoty.module'
-// import { ProductModule } from './api/product/product.module'
-// import { UserModule } from './api/user/user.module'
+import { UserModule } from './api/user/user.module'
 
 @Module({
   imports: [
-    // BookingModule,
-    // MassagerModule,
-    // PaymentModule,
-    // PropertyModule,
-    // ReviewModule,
-    // CartModule,
-    // CategoryModule,
-    // ProductModule,
-    // UserModule,
+    UserModule,
     //
     AuthModule,
     PrismaModule,
