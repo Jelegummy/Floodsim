@@ -20,7 +20,7 @@ const Home = () => {
                 Example
               </button>
             </Link>
-            <Link href="/example/porthree">
+            <Link href="/login">
               <button className="w-40 rounded bg-[#03a9f4] px-4 py-2 text-center text-white">
                 Get Started
               </button>

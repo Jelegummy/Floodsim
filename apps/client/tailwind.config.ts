@@ -18,7 +18,7 @@ const config = {
       {
         floodsim: {
           ...defaultTheme.light,
-          primary: '#6E5039',
+          primary: '#03a9f4',
           '.btn': {
             animation: 0,
           },
