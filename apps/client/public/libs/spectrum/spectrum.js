@@ -190,7 +190,7 @@
             dragHeight = 0,
             dragHelperHeight = 0,
             slideHeight = 0,
-            slideWidth = 0,
+            // slideWidth = 0,
             alphaWidth = 0,
             alphaSlideHelperWidth = 0,
             slideHelperHeight = 0,
@@ -207,7 +207,7 @@
             shiftMovementDirection = null;
 
         var doc = element.ownerDocument,
-            body = doc.body,
+            // body = doc.body,
             boundElement = $(element),
             disabled = false,
             container = $(markup, doc).addClass(theme),

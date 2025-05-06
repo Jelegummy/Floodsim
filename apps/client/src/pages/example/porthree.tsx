@@ -1,9 +1,22 @@
+/* eslint-disable @next/next/no-before-interactive-script-outside-document */
+/* eslint-disable @next/next/no-css-tags */
 'use client'
 
 import { useEffect } from 'react'
 import Script from 'next/script'
 
-export default function Home() {
+type PointCloudEvent = {
+  pointcloud: {
+    position: { z: number }
+    material: {
+      size: number
+      pointSizeType: number
+      activeAttributeName: string
+    }
+  }
+}
+
+export default function PorthreeExample() {
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&
@@ -29,7 +42,7 @@ export default function Home() {
       window.Potree.loadPointCloud(
         'http://5.9.65.151/mschuetz/potree/resources/pointclouds/opentopography/CA13_1.4/cloud.js',
         'CA13',
-        (e: any) => {
+        (e: PointCloudEvent) => {
           viewer.scene.addPointCloud(e.pointcloud)
           e.pointcloud.position.z = 0
 
